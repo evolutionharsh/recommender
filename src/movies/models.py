@@ -13,7 +13,7 @@ class Movie(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     ratings = GenericRelation(Rating)
     rating_last_updated = models.DateTimeField(auto_now = False, auto_now_add= False,
-                                               blank = True, null=True)
+                                               blank = True, null=True) 
     rating_count = models.IntegerField(
                                      blank = True, null = True)
     rating_avg = models.DecimalField(decimal_places=2, max_digits=5,
