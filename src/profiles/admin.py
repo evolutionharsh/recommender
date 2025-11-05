@@ -8,4 +8,4 @@ class RatingAdmin(admin.ModelAdmin):
     readonly_fields = ['content_object']
 
 
-admin.site.register(Rating, RatingAdmin)
+#admin.site.register(Rating, RatingAdmin)

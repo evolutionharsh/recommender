@@ -1,7 +1,7 @@
 import random
 from django.contrib.auth import get_user_model
 from movies.models import Movie
-
+from django.contrib.contenttypes.models import ContentType
 from .models import Rating, RatingChoice
 
 User = get_user_model()
@@ -16,6 +16,7 @@ def generate_fake_reviews(count=100, users=10 , null_avg=False):
     
     users = User.objects.filter(id__in=random_user_ids)
     movies = Movie.objects.all().order_by("?")[:count]
+    movie_ctype = ContentType.objects.get_for_model(Movie)
     if null_avg:
         movies = Movie.objects.filter(rating_avg_isnull=True).order_by("?")[:count]
 
@@ -29,6 +30,7 @@ def generate_fake_reviews(count=100, users=10 , null_avg=False):
     for movie in movies:
         rating_obj = Rating.objects.create(
             content_object = movie,
+            #object_id = movie.id,
             value = user_ratings.pop(),
             user = random.choice(users)
         )
