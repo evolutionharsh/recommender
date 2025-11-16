@@ -1,6 +1,6 @@
 {% load get_dict_val %}
-
 {% with my_ratings|get_dict_val:object.id  as current_rating %}
+
 <div class="card shadow-sm">
           
     <div class="card-body">
@@ -22,7 +22,7 @@
             </button>
           {% endif %}
 
-           {% include 'ratings/snippet/rating-choices.html' with object_id=object.id current_rating=current_rating %}
+          {% include 'ratings/snippet/rating-choices.html' with object_id=object.id current_rating=current_rating %}
             
             {% if object.rating_avg is not None %}
             <small class="text-muted">{{ object.rating_avg }} ({{ object.rating_count }})</small>
