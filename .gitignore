@@ -1,4 +1,7 @@
+src/local-cdn/
 src/data/movies_metadata.csv
+src/data/ratings_small.csv
+src/data/links_small.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
